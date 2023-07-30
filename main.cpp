@@ -73,11 +73,11 @@ int main() {
     std::cout << *knn;
     t_e();
 
-//    max_queue test;
-//    for(auto i:*index){
-//        test.emplace(i, distance(data,i,query,dim));
-//    }
-//    std::cout << test;
+    max_queue test;
+    for(auto i:*index){
+        test.emplace(i, distance(data,i,query,dim));
+    }
+    std::cout << test;
 
     return 0;
 }
