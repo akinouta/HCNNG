@@ -70,6 +70,17 @@ float distance(float **&data, int p1, int p2, int dim){
 
 }
 
+float distance(float ** &data, int p, float_array &q, int dim){
+    float result=0,tmp;
+
+    for(int i=0;i<dim;i++){
+        tmp=data[p][i]-q[i];
+        result += tmp*tmp;
+    }
+    return result;
+}
+
+
 void get_range(std::shared_ptr<int_array> &index,int num){
     index->reserve(num);
     for(int i=0;i<num;i++){

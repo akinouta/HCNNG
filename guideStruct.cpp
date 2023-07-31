@@ -89,3 +89,21 @@ void search_neighbor(std::shared_ptr<int_array> &neighbor,
         }
     }
 }
+
+
+void search_neighbor(std::shared_ptr<int_array> &neighbor,
+                     std::shared_ptr<SPT> &spt,
+                     float **&data,
+                     int now,
+                     float_array query,
+                     int dim_now){
+    if(spt->isLeaf){
+        neighbor=spt->points;
+    } else {
+        if(query[dim_now] < data[now][dim_now]){
+            search_neighbor(neighbor,spt->neg,data,now,query,dim_now+1);
+        } else {
+            search_neighbor(neighbor,spt->pos,data,now,query,dim_now+1);
+        }
+    }
+}

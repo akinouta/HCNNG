@@ -11,6 +11,7 @@
 
 void load_data(std::string &filename, float ** &data, int &num, int &dim);
 float distance(float ** &data, int p1, int p2, int dim);
+float distance(float ** &data, int p, float_array &q, int dim);
 void get_two_rand(int &p1,int &p2,std::shared_ptr<int_array> &index);
 void get_range(std::shared_ptr<int_array> &index,int num);
 void get_random_range(std::shared_ptr<int_array> &index,int num,int start,int end);

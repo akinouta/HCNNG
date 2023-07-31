@@ -26,10 +26,17 @@ std::ostream& operator<<(std::ostream& os, const max_queue &queue);
 void search(std::shared_ptr<max_queue> &nn,
             int k,
             float **&data,
-            std::shared_ptr<set_edge> hcnng,
-            std::shared_ptr<SPTs> spts,
+            std::shared_ptr<SPTs> &spts,
             int start,
             int query,
+            int dim);
+
+void search(std::shared_ptr<max_queue> &nn,
+            int k,
+            float **&data,
+            std::shared_ptr<SPTs> &spts,
+            int start,
+            float_array query,
             int dim);
 
 #endif //HCNNG_SEARCH_H

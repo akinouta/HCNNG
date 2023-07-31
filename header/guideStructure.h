@@ -31,4 +31,11 @@ void search_neighbor(std::shared_ptr<int_array> &neighbor,
                      int now,
                      int query,
                      int dim_now);
+
+void search_neighbor(std::shared_ptr<int_array> &neighbor,
+                     std::shared_ptr<SPT> &spt,
+                     float **&data,
+                     int now,
+                     float_array query,
+                     int dim_now);
 #endif //HCNNG_GUIDESTRUCTURE_H
