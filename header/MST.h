@@ -8,6 +8,7 @@
 
 
 #include "header.h"
+#include "spt.h"
 
 
 class Edge{
@@ -39,13 +40,13 @@ public:
 
 typedef std::set<Edge,EdgeCompare> set_edge;
 typedef std::vector<std::vector<float>> MGraph;
-typedef std::unordered_map<int,int> map;
+typedef std::unordered_map<int,int> uo_map;
 
 class DisjointSet {
 public:
-    map parents;
-    map degree;
-//    map rank;
+    uo_map parents;
+    uo_map degree;
+//    uo_map rank;
     explicit DisjointSet(int_array index);
     int find(int p);
     void merge(int p1, int p2);
@@ -61,8 +62,11 @@ public:
 
 
 //typedef std::unordered_set<Edge,EdgeHash,EdgeKeyEqual> set_edge_uo;
+std::ostream& operator<<(std::ostream& os, const Edge& e);
 std::ostream& operator<<(std::ostream& os, const set_edge& mySet);
 std::ostream& operator<<(std::ostream& os, const MGraph& mySet);
+std::ostream& operator<<(std::ostream& os, const guidedTuple & gt);
+std::ostream& operator<<(std::ostream& os, const guidedTupleSet & gts);
 
 void fullGraph(std::shared_ptr<set_edge> &full,
                float **&data, std::shared_ptr<int_array> &index,

@@ -39,4 +39,19 @@ void search(std::shared_ptr<max_queue> &nn,
             float_array query,
             int dim);
 
+void search(std::shared_ptr<max_queue> &nn,
+            int k,
+            float **&data,
+            std::shared_ptr<guidedTupleSet> &gts,
+            int start,
+            int query,
+            int dim);
+
+void search(std::shared_ptr<max_queue> &nn,
+            int k,
+            float **&data,
+            std::shared_ptr<guidedTupleSet> &gts,
+            int start,
+            float_array query,
+            int dim);
 #endif //HCNNG_SEARCH_H

@@ -37,8 +37,7 @@ std::ostream& operator<<(std::ostream& os, const Edge& e){
     os << "<" << e.start <<","<< e.end << "," <<e.weight << ">";
     return os;
 }
-std::ostream& operator<<(std::ostream& os, const set_edge& mySet)
-{
+std::ostream& operator<<(std::ostream& os, const set_edge& mySet){
     if(mySet.empty()){
         os << std::endl << "______empty______" << std::endl;
         return os;
@@ -60,6 +59,27 @@ std::ostream& operator<<(std::ostream& os, const MGraph& mySet){
     }
     return os;
 }
+std::ostream& operator<<(std::ostream& os, const guidedTuple & gt){
+    for(const auto& leaf:gt){
+       auto code = leaf.first;
+       auto nb=leaf.second;
+       os << code << ": { ";
+       for(auto p:*nb){
+           os<<p<<" ";
+       }
+       os << "}" <<std::endl;
+    }
+    return os;
+}
+std::ostream& operator<<(std::ostream& os, const guidedTupleSet & gts){
+    for(const auto& gt:gts){
+        os<< "point" << gt.first << ":" << std::endl;
+        auto set_leaf = gt.second;
+        os << *set_leaf;
+    }
+    return os;
+}
+
 std::size_t EdgeHash::operator()(const Edge& e) const{
     std::size_t startHash = std::hash<int>{}(e.start);
     std::size_t endHash = std::hash<int>{}(e.end);

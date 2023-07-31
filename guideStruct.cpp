@@ -54,6 +54,33 @@ std::shared_ptr<SPT> get_spt(float **&data,
     return spt;
 }
 
+void get_gt(std::shared_ptr<guidedTuple> gt,
+            float **&data,
+            int p,
+            std::shared_ptr<int_array> &neighbor,
+            std::string id,
+            int dim_now){
+    std::shared_ptr<SPT> spt(new SPT(dim_now+1));
+    std::shared_ptr<int_array> neg(new int_array);
+    std::shared_ptr<int_array> pos(new int_array);
+
+
+    for (auto n: *neighbor) {
+        if (data[n][dim_now] < data[p][dim_now]) {
+            neg->push_back(n);
+        } else {
+            pos->push_back(n);
+        }
+    }
+    if (neg->empty() || pos->empty()) {
+        gt->insert(std::make_pair(id,neighbor));
+    } else {
+        get_gt(gt, data, p, neg,id.append("0"), dim_now + 1);
+        get_gt(gt, data, p, pos,id.append("1"), dim_now + 1);
+    }
+
+}
+
 void get_all_spt(std::shared_ptr<SPTs> &spts,
                  float **&data,
                  std::shared_ptr<set_edge> &graph,
@@ -70,6 +97,19 @@ void get_all_spt(std::shared_ptr<SPTs> &spts,
 //        std::cout << "---" << i << "---" << std::endl;
 //        std::cout << *spt;
 //        std::cout << "***" << i << "***" << std::endl;
+    }
+}
+
+void get_gts(std::shared_ptr<guidedTupleSet> &gts,
+             float **&data,
+             std::shared_ptr<set_edge> &graph,
+             int num){
+    std::shared_ptr<neighbors> ns(new neighbors);
+    get_all_neighbors(ns,graph, num);
+    for(int i=0;i<ns->size();i++){
+        std::shared_ptr<guidedTuple> gt(new guidedTuple);
+        get_gt(gt,data,i,ns->at(i),"",0);
+        gts->insert(std::make_pair(i,gt));
     }
 }
 
@@ -106,4 +146,78 @@ void search_neighbor(std::shared_ptr<int_array> &neighbor,
             search_neighbor(neighbor,spt->pos,data,now,query,dim_now+1);
         }
     }
+}
+
+
+void search_neighbor(std::shared_ptr<int_array> &neighbor,
+                     std::shared_ptr<guidedTuple> &gt,
+                     float **&data,
+                     int now,
+                     int query,
+                     int dim){
+    std::string judge,max_code;
+    int max=0;
+    judge.resize(dim);
+    for(int i=0;i<dim;i++){
+        if(data[now][i]<data[query][i]){
+            judge[i]='0';
+        }
+        else{
+            judge[i]='1';
+        }
+    }
+    for(const auto& code:*gt){
+        int i;
+        for(i=0;i<code.first.size();i++){
+            if(code.first[i]!=judge[i]){
+                if(i>max){
+                    max=i;
+                    max_code=code.first;
+                    break;
+                }
+            }
+        }
+        if(i==code.first.size()){
+            max=i;
+            max_code=code.first;
+        }
+    }
+    neighbor = gt->at(max_code);
+}
+
+void search_neighbor(std::shared_ptr<int_array> &neighbor,
+                     std::shared_ptr<guidedTuple> &gt,
+                     float **&data,
+                     int now,
+                     float_array query,
+                     int dim){
+    std::string judge,max_code;
+    int max=0;
+    judge.resize(dim);
+    for(int i=0;i<dim;i++){
+        if(data[now][i]<query[i]){
+            judge[i]='0';
+        }
+        else{
+            judge[i]='1';
+        }
+    }
+    for(const auto& code:*gt){
+        int i;
+        for(i=0;i<code.first.size();i++){
+            if(code.first[i]!=judge[i]){
+                if(i>max){
+                    max=i;
+                    max_code=code.first;
+                    break;
+                }
+            }
+        }
+        if(i==code.first.size()){
+            max=i;
+            max_code=code.first;
+            break;
+        }
+    }
+    neighbor = (*gt)[max_code];
 }

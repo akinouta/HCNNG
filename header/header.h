@@ -19,6 +19,7 @@
 #include <typeinfo>
 #include <queue>
 #include <limits>
+#include <map>
 
 
 
@@ -26,6 +27,8 @@ typedef std::vector<int> int_array;
 typedef std::vector<float> float_array;
 typedef std::vector<std::shared_ptr<int_array>> neighbors;
 typedef std::chrono::time_point<std::chrono::steady_clock> t;
+
+
 extern t time_s;
 extern t time_e;
 
