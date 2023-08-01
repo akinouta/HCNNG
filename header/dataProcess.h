@@ -26,6 +26,8 @@ void print(float value);
 void t_s();
 void t_e(const std::string& s="");
 
+std::string stringToBits(const std::string& input_string);
+
 std::ostream& operator<<(std::ostream& os, const neighbors & mySet);
 
 

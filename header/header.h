@@ -19,9 +19,9 @@
 #include <typeinfo>
 #include <queue>
 #include <limits>
+#include <bitset>
 #include <map>
-
-
+#include <openssl/sha.h>
 
 typedef std::vector<int> int_array;
 typedef std::vector<float> float_array;

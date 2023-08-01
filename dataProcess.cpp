@@ -198,3 +198,12 @@ void t_e(const std::string& s){
     auto seconds = (duration / 1000000) % 60;
     std::cout << s << "runtime " << minutes << "m" << seconds << "s" << std::endl;
 }
+
+std::string stringToBits(const std::string& input_string) {
+    std::string binary_string;
+    for (char c : input_string) {
+        std::bitset<8> bits(c); // 将字符转换为8位二进制位
+        binary_string += bits.to_string();
+    }
+    return binary_string;
+}

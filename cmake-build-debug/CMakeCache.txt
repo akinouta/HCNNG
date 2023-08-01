@@ -248,6 +248,15 @@ HCNNG_IS_TOP_LEVEL:STATIC=ON
 //Value Computed by CMake
 HCNNG_SOURCE_DIR:STATIC=D:/soft/CLion/installament/project/HCNNG
 
+//Path to a library.
+LIB_EAY:FILEPATH=C:/Program Files/OpenSSL-Win64/lib/libcrypto.lib
+
+//Path to a file.
+OPENSSL_INCLUDE_DIR:PATH=C:/Program Files/OpenSSL-Win64/include
+
+//Path to a library.
+SSL_EAY:FILEPATH=C:/Program Files/OpenSSL-Win64/lib/libssl.lib
+
 
 ########################
 # INTERNAL cache entries
@@ -405,6 +414,14 @@ CMAKE_STATIC_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 CMAKE_STRIP-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_VERBOSE_MAKEFILE
 CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
+//Details about finding OpenSSL
+FIND_PACKAGE_MESSAGE_DETAILS_OpenSSL:INTERNAL=[C:/Program Files/OpenSSL-Win64/lib/libcrypto.lib][C:/Program Files/OpenSSL-Win64/include][c ][v3.1.1()]
+//ADVANCED property for variable: LIB_EAY
+LIB_EAY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: OPENSSL_INCLUDE_DIR
+OPENSSL_INCLUDE_DIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: SSL_EAY
+SSL_EAY-ADVANCED:INTERNAL=1
 //linker supports push/pop state
 _CMAKE_LINKER_PUSHPOP_STATE_SUPPORTED:INTERNAL=TRUE
 

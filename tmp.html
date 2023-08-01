@@ -1,0 +1,66 @@
+#include <iostream>
+    #include <vector>
+    #include <string>
+    #include <openssl/sha.h>
+
+    // 计算 SHA256 哈希值
+    std::string sha256(const std::string& input) {
+    unsigned char hash[SHA256_DIGEST_LENGTH];
+    SHA256((const unsigned char*)input.c_str(), input.length(), hash);
+
+    std::string result;
+    for (int i = 0; i < SHA256_DIGEST_LENGTH; ++i) {
+    result += hash[i];
+    }
+    return result;
+    }
+
+    // 计算向量的 SHA256 哈希值
+    std::string sha256Vector(const std::vector<float>& vector) {
+    std::string input;
+    for (float val : vector) {
+    // 将浮点数转换为字符串，保留6位小数以确保一致性
+    input += std::to_string(val) + ",";
+    }
+    return sha256(input);
+    }
+
+    // 构建 Merkle 哈希树
+    std::string buildMerkleTree(const std::vector<std::vector<float>>& dataset) {
+        if (dataset.empty()) {
+        return "";
+        }
+
+        if (dataset.size() == 1) {
+        // 对单个向量进行哈希
+        return sha256Vector(dataset[0]);
+        }
+
+        std::vector<std::string> newLevel;
+            for (size_t i = 0; i < dataset.size(); i += 2) {
+            std::string concatHash = sha256Vector(dataset[i]);
+            if (i + 1 < dataset.size()) {
+            concatHash += sha256Vector(dataset[i + 1]);
+            }
+            newLevel.push_back(sha256(concatHash));
+            }
+
+            return buildMerkleTree(newLevel);
+            }
+
+            int main() {
+            // 假设有 4 个 m 维向量的数据集
+            std::vector<std::vector<float>> dataset = {
+                {1.0, 2.0, 3.0},
+                {4.0, 5.0, 6.0},
+                {7.0, 8.0, 9.0},
+                {10.0, 11.0, 12.0}
+                };
+
+                // 构建 Merkle 哈希树
+                std::string merkleRoot = buildMerkleTree(dataset);
+
+                std::cout << "Merkle Root: " << merkleRoot << std::endl;
+
+                return 0;
+                }
