@@ -22,11 +22,17 @@
 #include <bitset>
 #include <map>
 #include <openssl/sha.h>
+#include <fstream>
+#include <utility>
+#include <cstdio>
+#include <iomanip>
 
 typedef std::vector<int> int_array;
 typedef std::vector<float> float_array;
 typedef std::vector<std::shared_ptr<int_array>> neighbors;
 typedef std::chrono::time_point<std::chrono::steady_clock> t;
+
+
 
 
 extern t time_s;

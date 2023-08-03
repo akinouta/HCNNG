@@ -22,9 +22,12 @@ void print_v(float **&data,int p,int dim);
 void print(int value);
 void print(std::string value);
 void print(float value);
+std::string printHash(const std::string& hash);
 
 void t_s();
 void t_e(const std::string& s="");
+
+
 
 std::string stringToBits(const std::string& input_string);
 

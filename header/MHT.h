@@ -6,12 +6,20 @@
 #define HCNNG_MHT_H
 #include "header.h"
 #include "dataProcess.h"
+#include "MST.h"
 std::string sha256(const std::string& input);
 std::string sha256Vector(float **&data,int p,int dim);
+std::string sha256Edge(Edge e);
+std::string guidedTupleToString(std::shared_ptr<guidedTuple>& gt);
 void datasetToHash(std::vector<std::string> &nodes, float **&data, int num, int dim);
+void graphToHash(std::vector<std::string> &nodes, std::shared_ptr<set_edge> &graph);
+void guidedTupleToHash(std::vector<std::string> &nodes, std::shared_ptr<guidedTupleSet> &gts);
+
 std::string buildMerkleTree(std::vector<std::string> &nodes);
 
 std::string outsourceDataset(float **&data, int num, int dim);
+std::string outsourceIndexGraph(std::shared_ptr<set_edge> &hcnng);
+std::string outsourceGuidedTuple(std::shared_ptr<guidedTupleSet> &gts);
 #endif //HCNNG_MHT_H
 
 

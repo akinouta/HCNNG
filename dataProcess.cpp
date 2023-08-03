@@ -154,6 +154,15 @@ void print(std::string value)
     std::cout << value << std::endl;
 }
 
+std::string printHash(const std::string& hash){
+    std::cout << std::hex << std::noshowbase;
+    for (unsigned char ch : hash) {
+        std::cout << std::setw(2) << std::setfill('0') << static_cast<int>(ch) << " ";
+    }
+    std::cout << std::dec << std::endl;
+    return "";
+}
+
 void get_two_rand(int &p1,int &p2,std::shared_ptr<int_array> &index){
     std::random_device rd;
     std::mt19937 rng(rd());
