@@ -17,36 +17,24 @@ bool Edge::operator<(const Edge& other) const{
     }
 }
 
-//bool EdgeCompare::operator()(Edge e1, Edge e2) const{
-//    if (e1.weight<e2.weight){
-//        return true;
-//    } else if(e1.weight>e2.weight){
-//        return false;
-//    }
-//
-//    if (e1.start<e2.start){
-//        return true;
-//    } else if(e1.start>e2.start){
-//        return false;
-//    }
-//
-//    return e1.end<e2.end;
-//}
-
 bool EdgeCompare::operator()(Edge e1, Edge e2) const{
-    if(e1.start < e2.start){
-        return true;
-    } else if(e1.start > e2.start){
-        return false;
-    }
 
-    if(e1.end < e2.end){
-        return true;
-    } else if(e1.end > e2.end){
-        return false;
-    }
-
-    return e1.weight<e2.weight;
+    if (e1.start != e2.start) return e1.start < e2.start;
+    if (e1.end != e2.end) return e1.end < e2.end;
+    return e1.weight < e2.weight;
+//    if(e1.start < e2.start){
+//        return true;
+//    } else if(e1.start > e2.start){
+//        return false;
+//    }
+//
+//    if(e1.end < e2.end){
+//        return true;
+//    } else if(e1.end > e2.end){
+//        return false;
+//    }
+//
+//    return e1.weight<e2.weight;
 }
 
 std::ostream& operator<<(std::ostream& os, const Edge& e){
@@ -66,6 +54,9 @@ std::ostream& operator<<(std::ostream& os, const set_edge& mySet){
     os << "_______end_______" << std::endl;
     return os;
 }
+
+
+
 std::ostream& operator<<(std::ostream& os, const MGraph& mySet){
     for(auto &i: mySet){
         for(auto j: i){

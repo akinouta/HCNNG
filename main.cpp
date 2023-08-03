@@ -4,6 +4,8 @@
 #include "header/guideStructure.h"
 #include "header/search.h"
 #include "header/MHT.h"
+#include "header/dataOwner.h"
+#include "header/server.h"
 
 t time_s;
 t time_e;
@@ -33,8 +35,6 @@ int main() {
     t_e();
 
     std::cout << *hcnng;
-
-
 
 
     t_s();

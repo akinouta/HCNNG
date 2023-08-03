@@ -20,8 +20,12 @@ public:
     Edge(int start, int end, float weight);
     bool operator<(const Edge& other) const;
     friend std::ostream& operator<<(std::ostream& os, const Edge& e);
-
+    template<class Archive>
+    void serialize(Archive &archive) {
+        archive(start, end, weight);
+    }
 };
+template void Edge::serialize<cereal::BinaryOutputArchive>(cereal::BinaryOutputArchive&);
 
 class EdgeCompare{
 public:

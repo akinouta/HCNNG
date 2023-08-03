@@ -5,30 +5,12 @@
 #include "header/dataOwner.h"
 
 
-//void saveEdge(std::shared_ptr<set_edge> graph){
-//    std::string filePath="header/index_graph.bin";
-//    std::ofstream outputFile(filePath, std::ios::binary);
-//    if (outputFile.is_open()) {
-//        for (auto item : *graph) {
-//            outputFile.write(reinterpret_cast<char*>(&item), sizeof(Edge));
-//        }
-//        outputFile.close();
-//        std::cout << "内容已保存到文件" << filePath << std::endl;
-//    } else {
-//        std::cerr << "无法打开文件" << std::endl;
-//    }
-//}
-//
-//void saveGuidedTuple(std::shared_ptr<guidedTupleSet> gts){
-//    std::string filePath="header/index_graph.bin";
-//    std::ofstream outputFile(filePath, std::ios::binary);
-//    if (outputFile.is_open()) {
-//        for (auto item : *gts) {
-//            outputFile.write(reinterpret_cast<char*>(&item), sizeof(int));
-//        }
-//        outputFile.close();
-//        std::cout << "内容已保存到文件" << filePath << std::endl;
-//    } else {
-//        std::cerr << "无法打开文件" << std::endl;
-//    }
-//}
+void saveEdge(std::shared_ptr<set_edge> &graph){
+    std::ofstream file("../disk/graph.bin", std::ios::binary);
+    if (file.is_open()){
+        cereal::BinaryOutputArchive archive(file);
+        archive(*graph);
+    }else{
+        std::cout << "Failed to open output file!" << std::endl;
+    }
+}

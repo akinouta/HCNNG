@@ -22,6 +22,9 @@
 #include <bitset>
 #include <map>
 #include <openssl/sha.h>
+#include <cereal/archives/binary.hpp>
+#include <cereal/types/set.hpp>
+#include <cereal/types/string.hpp>
 #include <fstream>
 #include <utility>
 #include <cstdio>

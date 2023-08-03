@@ -52,63 +52,70 @@ build cmake_object_order_depends_target_HCNNG: phony || CMakeFiles/HCNNG.dir
 build CMakeFiles/HCNNG.dir/main.cpp.obj: CXX_COMPILER__HCNNG_Debug D$:/soft/CLion/installament/project/HCNNG/main.cpp || cmake_object_order_depends_target_HCNNG
   DEP_FILE = CMakeFiles\HCNNG.dir\main.cpp.obj.d
   FLAGS = -g -fdiagnostics-color=always -std=gnu++20
-  INCLUDES = -I"C:/Program Files/OpenSSL-Win64/include"
+  INCLUDES = -I"C:/Program Files/OpenSSL-Win64/include" -ID:/soft/CLion/installament/project/HCNNG/./include
   OBJECT_DIR = CMakeFiles\HCNNG.dir
   OBJECT_FILE_DIR = CMakeFiles\HCNNG.dir
 
 build CMakeFiles/HCNNG.dir/MST.cpp.obj: CXX_COMPILER__HCNNG_Debug D$:/soft/CLion/installament/project/HCNNG/MST.cpp || cmake_object_order_depends_target_HCNNG
   DEP_FILE = CMakeFiles\HCNNG.dir\MST.cpp.obj.d
   FLAGS = -g -fdiagnostics-color=always -std=gnu++20
-  INCLUDES = -I"C:/Program Files/OpenSSL-Win64/include"
+  INCLUDES = -I"C:/Program Files/OpenSSL-Win64/include" -ID:/soft/CLion/installament/project/HCNNG/./include
   OBJECT_DIR = CMakeFiles\HCNNG.dir
   OBJECT_FILE_DIR = CMakeFiles\HCNNG.dir
 
 build CMakeFiles/HCNNG.dir/dataProcess.cpp.obj: CXX_COMPILER__HCNNG_Debug D$:/soft/CLion/installament/project/HCNNG/dataProcess.cpp || cmake_object_order_depends_target_HCNNG
   DEP_FILE = CMakeFiles\HCNNG.dir\dataProcess.cpp.obj.d
   FLAGS = -g -fdiagnostics-color=always -std=gnu++20
-  INCLUDES = -I"C:/Program Files/OpenSSL-Win64/include"
+  INCLUDES = -I"C:/Program Files/OpenSSL-Win64/include" -ID:/soft/CLion/installament/project/HCNNG/./include
   OBJECT_DIR = CMakeFiles\HCNNG.dir
   OBJECT_FILE_DIR = CMakeFiles\HCNNG.dir
 
 build CMakeFiles/HCNNG.dir/HCNNG.cpp.obj: CXX_COMPILER__HCNNG_Debug D$:/soft/CLion/installament/project/HCNNG/HCNNG.cpp || cmake_object_order_depends_target_HCNNG
   DEP_FILE = CMakeFiles\HCNNG.dir\HCNNG.cpp.obj.d
   FLAGS = -g -fdiagnostics-color=always -std=gnu++20
-  INCLUDES = -I"C:/Program Files/OpenSSL-Win64/include"
+  INCLUDES = -I"C:/Program Files/OpenSSL-Win64/include" -ID:/soft/CLion/installament/project/HCNNG/./include
   OBJECT_DIR = CMakeFiles\HCNNG.dir
   OBJECT_FILE_DIR = CMakeFiles\HCNNG.dir
 
 build CMakeFiles/HCNNG.dir/guideStruct.cpp.obj: CXX_COMPILER__HCNNG_Debug D$:/soft/CLion/installament/project/HCNNG/guideStruct.cpp || cmake_object_order_depends_target_HCNNG
   DEP_FILE = CMakeFiles\HCNNG.dir\guideStruct.cpp.obj.d
   FLAGS = -g -fdiagnostics-color=always -std=gnu++20
-  INCLUDES = -I"C:/Program Files/OpenSSL-Win64/include"
+  INCLUDES = -I"C:/Program Files/OpenSSL-Win64/include" -ID:/soft/CLion/installament/project/HCNNG/./include
   OBJECT_DIR = CMakeFiles\HCNNG.dir
   OBJECT_FILE_DIR = CMakeFiles\HCNNG.dir
 
 build CMakeFiles/HCNNG.dir/spt.cpp.obj: CXX_COMPILER__HCNNG_Debug D$:/soft/CLion/installament/project/HCNNG/spt.cpp || cmake_object_order_depends_target_HCNNG
   DEP_FILE = CMakeFiles\HCNNG.dir\spt.cpp.obj.d
   FLAGS = -g -fdiagnostics-color=always -std=gnu++20
-  INCLUDES = -I"C:/Program Files/OpenSSL-Win64/include"
+  INCLUDES = -I"C:/Program Files/OpenSSL-Win64/include" -ID:/soft/CLion/installament/project/HCNNG/./include
   OBJECT_DIR = CMakeFiles\HCNNG.dir
   OBJECT_FILE_DIR = CMakeFiles\HCNNG.dir
 
 build CMakeFiles/HCNNG.dir/search.cpp.obj: CXX_COMPILER__HCNNG_Debug D$:/soft/CLion/installament/project/HCNNG/search.cpp || cmake_object_order_depends_target_HCNNG
   DEP_FILE = CMakeFiles\HCNNG.dir\search.cpp.obj.d
   FLAGS = -g -fdiagnostics-color=always -std=gnu++20
-  INCLUDES = -I"C:/Program Files/OpenSSL-Win64/include"
+  INCLUDES = -I"C:/Program Files/OpenSSL-Win64/include" -ID:/soft/CLion/installament/project/HCNNG/./include
   OBJECT_DIR = CMakeFiles\HCNNG.dir
   OBJECT_FILE_DIR = CMakeFiles\HCNNG.dir
 
 build CMakeFiles/HCNNG.dir/MHT.cpp.obj: CXX_COMPILER__HCNNG_Debug D$:/soft/CLion/installament/project/HCNNG/MHT.cpp || cmake_object_order_depends_target_HCNNG
   DEP_FILE = CMakeFiles\HCNNG.dir\MHT.cpp.obj.d
   FLAGS = -g -fdiagnostics-color=always -std=gnu++20
-  INCLUDES = -I"C:/Program Files/OpenSSL-Win64/include"
+  INCLUDES = -I"C:/Program Files/OpenSSL-Win64/include" -ID:/soft/CLion/installament/project/HCNNG/./include
   OBJECT_DIR = CMakeFiles\HCNNG.dir
   OBJECT_FILE_DIR = CMakeFiles\HCNNG.dir
 
 build CMakeFiles/HCNNG.dir/dataOwner.cpp.obj: CXX_COMPILER__HCNNG_Debug D$:/soft/CLion/installament/project/HCNNG/dataOwner.cpp || cmake_object_order_depends_target_HCNNG
   DEP_FILE = CMakeFiles\HCNNG.dir\dataOwner.cpp.obj.d
   FLAGS = -g -fdiagnostics-color=always -std=gnu++20
-  INCLUDES = -I"C:/Program Files/OpenSSL-Win64/include"
+  INCLUDES = -I"C:/Program Files/OpenSSL-Win64/include" -ID:/soft/CLion/installament/project/HCNNG/./include
+  OBJECT_DIR = CMakeFiles\HCNNG.dir
+  OBJECT_FILE_DIR = CMakeFiles\HCNNG.dir
+
+build CMakeFiles/HCNNG.dir/server.cpp.obj: CXX_COMPILER__HCNNG_Debug D$:/soft/CLion/installament/project/HCNNG/server.cpp || cmake_object_order_depends_target_HCNNG
+  DEP_FILE = CMakeFiles\HCNNG.dir\server.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always -std=gnu++20
+  INCLUDES = -I"C:/Program Files/OpenSSL-Win64/include" -ID:/soft/CLion/installament/project/HCNNG/./include
   OBJECT_DIR = CMakeFiles\HCNNG.dir
   OBJECT_FILE_DIR = CMakeFiles\HCNNG.dir
 
@@ -120,7 +127,7 @@ build CMakeFiles/HCNNG.dir/dataOwner.cpp.obj: CXX_COMPILER__HCNNG_Debug D$:/soft
 #############################################
 # Link the executable HCNNG.exe
 
-build HCNNG.exe: CXX_EXECUTABLE_LINKER__HCNNG_Debug CMakeFiles/HCNNG.dir/main.cpp.obj CMakeFiles/HCNNG.dir/MST.cpp.obj CMakeFiles/HCNNG.dir/dataProcess.cpp.obj CMakeFiles/HCNNG.dir/HCNNG.cpp.obj CMakeFiles/HCNNG.dir/guideStruct.cpp.obj CMakeFiles/HCNNG.dir/spt.cpp.obj CMakeFiles/HCNNG.dir/search.cpp.obj CMakeFiles/HCNNG.dir/MHT.cpp.obj CMakeFiles/HCNNG.dir/dataOwner.cpp.obj | C$:/Program$ Files/OpenSSL-Win64/lib/libssl.lib C$:/Program$ Files/OpenSSL-Win64/lib/libcrypto.lib
+build HCNNG.exe: CXX_EXECUTABLE_LINKER__HCNNG_Debug CMakeFiles/HCNNG.dir/main.cpp.obj CMakeFiles/HCNNG.dir/MST.cpp.obj CMakeFiles/HCNNG.dir/dataProcess.cpp.obj CMakeFiles/HCNNG.dir/HCNNG.cpp.obj CMakeFiles/HCNNG.dir/guideStruct.cpp.obj CMakeFiles/HCNNG.dir/spt.cpp.obj CMakeFiles/HCNNG.dir/search.cpp.obj CMakeFiles/HCNNG.dir/MHT.cpp.obj CMakeFiles/HCNNG.dir/dataOwner.cpp.obj CMakeFiles/HCNNG.dir/server.cpp.obj | C$:/Program$ Files/OpenSSL-Win64/lib/libssl.lib C$:/Program$ Files/OpenSSL-Win64/lib/libcrypto.lib
   FLAGS = -g
   LINK_LIBRARIES = "C:/Program Files/OpenSSL-Win64/lib/libssl.lib"  "C:/Program Files/OpenSSL-Win64/lib/libcrypto.lib"  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\HCNNG.dir
