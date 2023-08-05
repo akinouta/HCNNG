@@ -8,4 +8,6 @@
 #include "MST.h"
 
 void loadEdge(std::shared_ptr<set_edge> &graph);
+void loadGuidedTuple(std::shared_ptr<guidedTupleSet> &gts);
+
 #endif //HCNNG_SERVER_H

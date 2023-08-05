@@ -8,6 +8,6 @@
 #include "MST.h"
 
 void saveEdge(std::shared_ptr<set_edge> &graph);
-//void saveGuidedTuple(std::shared_ptr<guidedTupleSet> &gts);
+void saveGuidedTuple(std::shared_ptr<guidedTupleSet> &gts);
 
 #endif //HCNNG_DATAOWNER_H
