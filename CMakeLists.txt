@@ -15,7 +15,7 @@ find_package(OpenSSL REQUIRED)
 include_directories(${OPENSSL_INCLUDE_DIR})
 include_directories(./include)
 
-add_executable(HCNNG main.cpp header/MST.h MST.cpp header/spt.h dataProcess.cpp header/dataProcess.h header/HCNNG.h HCNNG.cpp header/header.h header/guideStructure.h guideStruct.cpp spt.cpp search.cpp header/search.h header/MHT.h MHT.cpp dataOwner.cpp header/dataOwner.h server.cpp header/server.h)
+add_executable(HCNNG main.cpp header/MST.h MST.cpp header/spt.h dataProcess.cpp header/dataProcess.h header/HCNNG.h HCNNG.cpp header/header.h header/guideStructure.h guideStruct.cpp spt.cpp search.cpp header/search.h header/MHT.h MHT.cpp serialization.cpp header/serialization.h s.cpp header/VO.h header/VO.h VO.cpp)
 
 # 链接 OpenSSL 库
 target_link_libraries(HCNNG PRIVATE ${OPENSSL_SSL_LIBRARY} ${OPENSSL_CRYPTO_LIBRARY})

@@ -87,6 +87,15 @@ std::ostream& operator<<(std::ostream& os, const guidedTupleSet & gts){
     return os;
 }
 
+std::ostream& operator<<(std::ostream& os, const int_set &set){
+    os<<"{ ";
+    for(auto i:set){
+        os<<i<<" ";
+    }
+    os<<"}"<<std::endl;
+    return os;
+}
+
 std::size_t EdgeHash::operator()(const Edge& e) const{
     std::size_t startHash = std::hash<int>{}(e.start);
     std::size_t endHash = std::hash<int>{}(e.end);

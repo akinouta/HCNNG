@@ -28,13 +28,21 @@
 #include <cereal/types/vector.hpp>
 #include <cereal/types/map.hpp>
 #include <cereal/types/memory.hpp>
+#include <cereal/types/variant.hpp>
 #include <fstream>
 #include <utility>
 #include <cstdio>
 #include <iomanip>
+#include <variant>
+#include <any>
+
+const std::string datasetPath = "../disk/data.bin";
+const std::string graphPath = "../disk/graph.bin";
+const std::string guideTuplePath = "../disk/gt.bin";
 
 typedef std::vector<int> int_array;
 typedef std::vector<float> float_array;
+typedef std::set<int> int_set;
 typedef std::vector<std::shared_ptr<int_array>> neighbors;
 typedef std::chrono::time_point<std::chrono::steady_clock> t;
 

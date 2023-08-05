@@ -71,6 +71,7 @@ std::ostream& operator<<(std::ostream& os, const set_edge& mySet);
 std::ostream& operator<<(std::ostream& os, const MGraph& mySet);
 std::ostream& operator<<(std::ostream& os, const guidedTuple & gt);
 std::ostream& operator<<(std::ostream& os, const guidedTupleSet & gts);
+std::ostream& operator<<(std::ostream& os, const int_set &set);
 
 void fullGraph(std::shared_ptr<set_edge> &full,
                float **&data, std::shared_ptr<int_array> &index,
