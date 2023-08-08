@@ -6,9 +6,9 @@
 #define HCNNG_SPT_H
 
 #include "header.h"
-#include "dataProcess.h"
-typedef std::map<std::string,std::shared_ptr<int_array>> guidedTuple;
-typedef std::map<int,std::shared_ptr<guidedTuple>> guidedTupleSet;
+
+
+//typedef std::map<int,std::shared_ptr<guidedTuple>> guidedTupleSet;
 /*
  * 分割树
  */

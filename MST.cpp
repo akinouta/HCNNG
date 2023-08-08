@@ -1,8 +1,7 @@
 //
 // Created by 秋日的歌 on 2023/5/15.
 //
-#include "header/header.h"
-#include "header/dataProcess.h"
+
 #include "header/MST.h"
 
 
@@ -78,11 +77,10 @@ std::ostream& operator<<(std::ostream& os, const guidedTuple & gt){
     }
     return os;
 }
+
 std::ostream& operator<<(std::ostream& os, const guidedTupleSet & gts){
-    for(const auto& gt:gts){
-        os<< "point" << gt.first << ":" << std::endl;
-        auto set_leaf = gt.second;
-        os << *set_leaf;
+    for(const auto& i:gts){
+        os<< "point" << i.first << ":" << std::endl << *i.second <<std::endl;
     }
     return os;
 }

@@ -2,7 +2,7 @@
 // Created by 秋日的歌 on 2023/5/16.
 //
 #include "header/HCNNG.h"
-#include "header/dataProcess.h"
+
 
 void MST3(std::shared_ptr<set_edge> &mst,float **&data, std::shared_ptr<int_array> &index, int dim){
 

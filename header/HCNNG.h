@@ -8,6 +8,7 @@
 
 #include "header.h"
 #include "MST.h"
+#include "dataProcess.h"
 
 
 void MST3(std::shared_ptr<set_edge> &mst,float ** &data,

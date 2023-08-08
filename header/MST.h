@@ -7,8 +7,8 @@
 
 
 
-#include "header.h"
-#include "spt.h"
+
+#include "dataProcess.h"
 
 
 class Edge{

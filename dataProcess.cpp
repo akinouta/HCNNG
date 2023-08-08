@@ -1,30 +1,7 @@
 //
 // Created by 秋日的歌 on 2023/5/15.
 //
-#include <iostream>
-#include <fstream>
 #include "header/dataProcess.h"
-void load_data(std::string filename, float *&data, int &num, int &dim){
-    std::ifstream in(filename, std::ios::binary);
-    if (!in.is_open()) {
-        std::cerr << "open file error" << std::endl;
-        exit(-1);
-    }
-    in.read((char *) &dim, 4);
-    in.seekg(0, std::ios::end);
-    std::ios::pos_type ss = in.tellg();
-    auto f_size = (size_t) ss;
-    num = (int) (f_size / (dim + 1) / 4);
-    data = new float[num * dim];
-
-    in.seekg(0, std::ios::beg);
-    for (size_t i = 0; i < num; i++) {
-        in.seekg(4, std::ios::cur);
-        in.read((char *) (data + i * dim), dim * sizeof(float));
-    }
-    in.close();
-
-}
 
 
 void load_data(std::string &filename, float **&data, int &num, int &dim){
@@ -59,6 +36,35 @@ void load_data(std::string &filename, float **&data, int &num, int &dim){
     inputFile.close();
 }
 
+void load_data(std::string &filename, std::shared_ptr<DATA> &data){
+
+    std::ifstream inputFile(filename, std::ios::binary);
+    int dim,num;
+
+    if (!inputFile) {
+        std::cerr << "无法打开文件：" << filename << std::endl;
+        exit(0);
+    }
+
+    inputFile.read(reinterpret_cast<char*>(&dim), sizeof(int));
+    inputFile.seekg(0, std::ios::end);
+    std::streampos fileSize = inputFile.tellg();
+    auto f_size = (size_t) fileSize;
+
+    num = (int) (f_size / (dim + 1) / 4);
+//    dim++;
+    data->reserve(num);
+    for(const auto& v:*data){
+        v->reserve(dim);
+    }
+    inputFile.seekg(0, std::ios::beg);
+    for (int i = 0; i < num; i++) {
+        inputFile.seekg(4, std::ios::cur);
+        inputFile.read(reinterpret_cast<char*>(data->at(i)->data()), static_cast<std::streamsize>(dim*sizeof(float)));
+    }
+    inputFile.close();
+}
+
 float distance(float **&data, int p1, int p2, int dim){
     float result=0,tmp;
 
@@ -80,6 +86,26 @@ float distance(float ** &data, int p, float_array &q, int dim){
     return result;
 }
 
+float distance(std::shared_ptr<DATA> &data, int p1, int p2){
+    float result=0,tmp;
+
+    for(int i=0;i< data->at(0)->size();i++){
+        tmp=data->at(p1)->at(i)-data->at(p2)->at(i);
+        result += tmp*tmp;
+    }
+    return result;
+
+}
+
+float distance(std::shared_ptr<DATA> &data, int p, float_array &q){
+    float result=0,tmp;
+
+    for(int i=0;i< data->at(0)->size();i++){
+        tmp=data->at(p)->at(i)-q[i];
+        result += tmp*tmp;
+    }
+    return result;
+}
 
 void get_range(std::shared_ptr<int_array> &index,int num){
     index->reserve(num);
@@ -216,3 +242,4 @@ std::string stringToBits(const std::string& input_string) {
     }
     return binary_string;
 }
+

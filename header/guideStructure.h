@@ -5,7 +5,7 @@
 #ifndef HCNNG_GUIDESTRUCTURE_H
 #define HCNNG_GUIDESTRUCTURE_H
 
-#include "header.h"
+#include "dataProcess.h"
 #include "MST.h"
 #include "spt.h"
 

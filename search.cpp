@@ -24,6 +24,24 @@ std::ostream& operator<<(std::ostream& os, const max_queue &queue){
     return os;
 }
 
+bool isEqualKnn(max_queue knn1,max_queue knn2){
+    if(knn1.size()!=knn2.size()){
+        return false;
+    }
+    while(knn1.empty()){
+        auto i=knn1.top(),j=knn2.top();
+        if(i.first!=j.first){
+            return false;
+        }
+        if(i.second!=j.second){
+            return false;
+        }
+        knn1.pop();
+        knn2.pop();
+    }
+    return true;
+}
+
 void search(std::shared_ptr<max_queue> &nn,
             int k,
             float **&data,

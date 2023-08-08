@@ -10,16 +10,23 @@
 std::string sha256(const std::string& input);
 std::string sha256Vector(float **&data,int p,int dim);
 std::string sha256Edge(Edge e);
-std::string guidedTupleToString(std::shared_ptr<guidedTuple>& gt);
+std::string sha256GuidedTuple(int p,std::shared_ptr<guidedTuple>& gt);
+std::string sha256VGT(std::shared_ptr<guidedTuple>& gt,float **&data,int p,int dim);
+
 void datasetToHash(std::vector<std::string> &nodes, float **&data, int num, int dim);
 void graphToHash(std::vector<std::string> &nodes, std::shared_ptr<set_edge> &graph);
 void guidedTupleToHash(std::vector<std::string> &nodes, std::shared_ptr<guidedTupleSet> &gts);
+void VGTToHash(std::vector<std::string> &nodes,std::shared_ptr<guidedTupleSet>& gts,float **&data,int num,int dim);
+
+std::string guidedTupleSetToString(std::shared_ptr<guidedTuple> &gt);
 
 std::string buildMerkleTree(std::vector<std::string> &nodes);
 
 std::string outsourceDataset(float **&data, int num, int dim);
 std::string outsourceIndexGraph(std::shared_ptr<set_edge> &hcnng);
-std::string outsourceGuidedTuple(std::shared_ptr<guidedTupleSet> &gts);
+std::string outsourceGuidedTupleSet(std::shared_ptr<guidedTupleSet> &gts);
+std::string outsourceVGT(std::shared_ptr<guidedTupleSet> &gts,float **&data, int num, int dim);
+
 #endif //HCNNG_MHT_H
 
 

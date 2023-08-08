@@ -22,6 +22,8 @@ typedef std::priority_queue<std::pair<int,float>, std::deque<std::pair<int,float
 typedef std::priority_queue<std::pair<int,float>, std::deque<std::pair<int,float>>, Compare2> max_queue;
 
 std::ostream& operator<<(std::ostream& os, const max_queue &queue);
+bool isEqualKnn(max_queue knn1,max_queue knn2);
+
 
 void search(std::shared_ptr<max_queue> &nn,
             int k,

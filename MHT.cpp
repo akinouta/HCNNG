@@ -27,8 +27,8 @@ std::string sha256Edge(Edge e){
     return sha256(std::to_string(e.start)+","+std::to_string(e.end)+","+std::to_string(e.weight));
 }
 
-std::string guidedTupleToString(std::shared_ptr<guidedTuple>& gt){
-    std::string result;
+std::string sha256GuidedTuple(int p,std::shared_ptr<guidedTuple>& gt){
+    std::string result= std::to_string(p)+":";
     for(const auto& i:*gt){
         result+= "<" + i.first + ",";
         for(auto j: *i.second){
@@ -36,7 +36,24 @@ std::string guidedTupleToString(std::shared_ptr<guidedTuple>& gt){
         }
         result+="}>";
     }
-    return result;
+    return sha256(result);
+}
+
+std::string sha256VGT(std::shared_ptr<guidedTuple>& gt,float **&data,int p,int dim){
+    std::string input= std::to_string(p)+":[";
+    for (int i=0;i<dim;i++) {
+        // 将浮点数转换为字符串，保留6位小数以确保一致性
+        input += std::to_string(data[p][i]) + ",";
+    }
+    input += "],";
+    for(const auto& i:*gt){
+        input+= "<" + i.first + ",";
+        for(auto j: *i.second){
+            input+= "{" + std::to_string(j) + ",";
+        }
+        input+="}>";
+    }
+    return sha256(input);
 }
 
 void datasetToHash(std::vector<std::string> &nodes, float **&data, int num, int dim){
@@ -52,12 +69,15 @@ void graphToHash(std::vector<std::string> &nodes, std::shared_ptr<set_edge> &gra
 }
 
 void guidedTupleToHash(std::vector<std::string> &nodes, std::shared_ptr<guidedTupleSet> &gts){
-    for(const auto& item:*gts){
-        int p=item.first;
-        auto gt= item.second;
-        auto gt_s = guidedTupleToString(gt);
-        std::string input= std::to_string(p)+","+gt_s;
-        nodes.push_back(sha256(input));
+    for(auto gt:*gts){
+        nodes.push_back(sha256GuidedTuple(gt.first,gt.second));
+    }
+}
+
+void VGTToHash(std::vector<std::string> &nodes,std::shared_ptr<guidedTupleSet>& gts,float **&data,int num,int dim){
+    for(int i=0;i<num;i++){
+        nodes.push_back(sha256VGT(gts->at(i),data,i,dim));
+//        printHash(nodes.at(i));
     }
 }
 
@@ -92,8 +112,14 @@ std::string outsourceIndexGraph(std::shared_ptr<set_edge> &hcnng){
     return buildMerkleTree(nodes);
 }
 
-std::string outsourceGuidedTuple(std::shared_ptr<guidedTupleSet> &gts){
+std::string outsourceGuidedTupleSet(std::shared_ptr<guidedTupleSet> &gts){
     std::vector<std::string> nodes;
     guidedTupleToHash(nodes,gts);
+    return buildMerkleTree(nodes);
+}
+
+std::string outsourceVGT(std::shared_ptr<guidedTupleSet> &gts,float **&data, int num, int dim){
+    std::vector<std::string> nodes;
+    VGTToHash(nodes,gts,data,num,dim);
     return buildMerkleTree(nodes);
 }
